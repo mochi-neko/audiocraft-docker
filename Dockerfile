@@ -38,9 +38,9 @@ RUN /opt/python3.11/bin/pip --version
 # Setup Poetry
 RUN /opt/python3.11/bin/pip install poetry
 COPY pyproject.toml .
-# COPY poetry.lock .
+COPY poetry.lock .
 RUN poetry install
-ENV PATH /root/.cache/pypoetry/virtualenvs/nec-ai-avatar-server-9TtSrW0h-py3.11/bin:$PATH
+ENV PATH /root/.cache/pypoetry/virtualenvs/audiocraft-docker-9TtSrW0h-py3.11/bin:$PATH
 
 # Set working directory
 WORKDIR /app
