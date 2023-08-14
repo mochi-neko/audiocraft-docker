@@ -229,22 +229,22 @@ tests-no-zope = ["cloudpickle", "hypothesis", "mypy (>=1.1.1)", "pympler", "pyte
 
 [[package]]
 name = "audiocraft"
-version = "0.0.2"
-description = "Audio research library for PyTorch"
+version = "1.0.0"
+description = "Audio generation research library for PyTorch"
 optional = false
 python-versions = ">=3.8.0"
-files = [
-    {file = "audiocraft-0.0.2.tar.gz", hash = "sha256:802084f456c0cd0480dafd6e9ea150165483209590f6b1b4d6595d7791a8a467"},
-]
+files = []
+develop = false
 
 [package.dependencies]
 av = "*"
 demucs = "*"
 einops = "*"
+encodec = "*"
 flashy = ">=0.0.1"
 gradio = "*"
-huggingface_hub = "*"
-hydra_colorlog = "*"
+huggingface-hub = "*"
+hydra-colorlog = "*"
 hydra-core = ">=1.1"
 julius = "*"
 librosa = "*"
@@ -254,12 +254,19 @@ sentencepiece = "*"
 spacy = "3.5.2"
 torch = ">=2.0.0"
 torchaudio = ">=2.0.0"
+torchmetrics = "*"
 tqdm = "*"
-transformers = "*"
+transformers = ">=4.31.0"
 xformers = "*"
 
 [package.extras]
 dev = ["coverage", "flake8", "mypy", "pdoc3", "pytest"]
+
+[package.source]
+type = "git"
+url = "https://github.com/facebookresearch/audiocraft.git"
+reference = "HEAD"
+resolved_reference = "e96018613ac82b1afe0f0cce7861dfe08ba2b3bf"
 
 [[package]]
 name = "audioread"
@@ -608,12 +615,8 @@ optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+    {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://download.pytorch.org/whl/cu118"
-reference = "pytorch"
 
 [[package]]
 name = "colorlog"
@@ -940,6 +943,25 @@ files = [
     {file = "einops-0.6.1-py3-none-any.whl", hash = "sha256:99149e46cc808956b174932fe563d920db4d6e5dadb8c6ecdaa7483b7ef7cfc3"},
     {file = "einops-0.6.1.tar.gz", hash = "sha256:f95f8d00f4ded90dbc4b19b6f98b177332614b0357dde66997f3ae5d474dc8c8"},
 ]
+
+[[package]]
+name = "encodec"
+version = "0.1.1"
+description = "High fidelity neural audio codec"
+optional = false
+python-versions = ">=3.8.0"
+files = [
+    {file = "encodec-0.1.1.tar.gz", hash = "sha256:36dde98ccfe6c51a15576476cadfcb3b35a63507b8b8555abd69889a6fba6772"},
+]
+
+[package.dependencies]
+einops = "*"
+numpy = "*"
+torch = "*"
+torchaudio = "*"
+
+[package.extras]
+dev = ["flake8", "mypy", "pdoc3"]
 
 [[package]]
 name = "exceptiongroup"
@@ -1370,12 +1392,8 @@ optional = false
 python-versions = ">=3.5"
 files = [
     {file = "idna-3.4-py3-none-any.whl", hash = "sha256:90b77e79eaa3eba6de819a0c442c0b4ceefc341a7a2ab77d7562bf49f425c5c2"},
+    {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
 ]
-
-[package.source]
-type = "legacy"
-url = "https://download.pytorch.org/whl/cu118"
-reference = "pytorch"
 
 [[package]]
 name = "importlib-resources"
@@ -1400,6 +1418,7 @@ optional = false
 python-versions = ">=3.7"
 files = [
     {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},
+    {file = "Jinja2-3.1.2.tar.gz", hash = "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"},
 ]
 
 [package.dependencies]
@@ -1407,11 +1426,6 @@ MarkupSafe = ">=2.0"
 
 [package.extras]
 i18n = ["Babel (>=2.7)"]
-
-[package.source]
-type = "legacy"
-url = "https://download.pytorch.org/whl/cu118"
-reference = "pytorch"
 
 [[package]]
 name = "joblib"
@@ -1677,6 +1691,26 @@ typing-extensions = ">=4.1.1"
 display = ["matplotlib (>=3.3.0)"]
 docs = ["ipython (>=7.0)", "matplotlib (>=3.3.0)", "mir-eval (>=0.5)", "numba (>=0.51)", "numpydoc", "presets", "sphinx (!=1.3.1,<6)", "sphinx-gallery (>=0.7)", "sphinx-multiversion (>=0.2.3)", "sphinx-rtd-theme (==1.*)", "sphinxcontrib-svg2pdfconverter"]
 tests = ["matplotlib (>=3.3.0)", "packaging (>=20.0)", "pytest", "pytest-cov", "pytest-mpl", "resampy (>=0.2.2)", "samplerate", "types-decorator"]
+
+[[package]]
+name = "lightning-utilities"
+version = "0.9.0"
+description = "PyTorch Lightning Sample project."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "lightning-utilities-0.9.0.tar.gz", hash = "sha256:efbf2c488c257f942abdfd06cf646fb84ca215a9663b60081811e22a15ee033b"},
+    {file = "lightning_utilities-0.9.0-py3-none-any.whl", hash = "sha256:918dd90c775719e3855631db6282ad75c14da4c5727c4cebdd1589d865fad03d"},
+]
+
+[package.dependencies]
+packaging = ">=17.1"
+typing-extensions = "*"
+
+[package.extras]
+cli = ["fire"]
+docs = ["requests (>=2.0.0)"]
+typing = ["mypy (>=1.0.0)"]
 
 [[package]]
 name = "linkify-it-py"
@@ -3764,35 +3798,33 @@ url = "https://download.pytorch.org/whl/cu118"
 reference = "pytorch"
 
 [[package]]
-name = "torchvision"
-version = "0.15.2+cu118"
-description = "image and video datasets and models for torch deep learning"
+name = "torchmetrics"
+version = "1.0.3"
+description = "PyTorch native Metrics"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "torchvision-0.15.2+cu118-cp310-cp310-linux_x86_64.whl", hash = "sha256:19ca4ab5d6179bbe53cff79df1a855ee6533c2861ddc7389f68349d8b9f8302a"},
-    {file = "torchvision-0.15.2+cu118-cp310-cp310-win_amd64.whl", hash = "sha256:bfd2435d681418bea8dacde2b2cb6e5dd40a0e0243d3631e2b71c10bf9831f39"},
-    {file = "torchvision-0.15.2+cu118-cp311-cp311-linux_x86_64.whl", hash = "sha256:def9af47ebc2cad55c5aa2dad1230dcf4261833ed6df8a73e839bc233764f09e"},
-    {file = "torchvision-0.15.2+cu118-cp311-cp311-win_amd64.whl", hash = "sha256:ee36a68bb369d4173eb74ddf457751f6be1531d883f456eaf9b337a06f31c8fb"},
-    {file = "torchvision-0.15.2+cu118-cp38-cp38-linux_x86_64.whl", hash = "sha256:af6807d5e599fe5381c916235a5581407e850eb77c3d43899f37a1511ff81cc0"},
-    {file = "torchvision-0.15.2+cu118-cp38-cp38-win_amd64.whl", hash = "sha256:406ed3d8bc5b66a99b692d4c742de39a3a515a399e6bfd1c24fbb688fbb31968"},
-    {file = "torchvision-0.15.2+cu118-cp39-cp39-linux_x86_64.whl", hash = "sha256:f2c6f5a100bcf9020b82f5d4c87cd7e26af0409cf33b90fb797b1127dcd42de6"},
-    {file = "torchvision-0.15.2+cu118-cp39-cp39-win_amd64.whl", hash = "sha256:27be62ec887ab9a7b86612eac55ba80f8c23978c8afd5e4339669a1bbc4925ea"},
+    {file = "torchmetrics-1.0.3-py3-none-any.whl", hash = "sha256:612a74ab8ebfcd4ebb38e5c370ce29a0e73af074948048f6f2233e25cf60da75"},
+    {file = "torchmetrics-1.0.3.tar.gz", hash = "sha256:1c20ea2f0db434334e88da6c015ddf936d43379bfb403e9dc2a7272b0eab453c"},
 ]
 
 [package.dependencies]
-numpy = "*"
-pillow = ">=5.3.0,<8.3.dev0 || >=8.4.dev0"
-requests = "*"
-torch = "2.0.1"
+lightning-utilities = ">=0.7.0"
+numpy = ">1.20.0"
+packaging = "*"
+torch = ">=1.8.1"
 
 [package.extras]
-scipy = ["scipy"]
-
-[package.source]
-type = "legacy"
-url = "https://download.pytorch.org/whl/cu118"
-reference = "pytorch"
+all = ["SciencePlots (>=2.0.0)", "lpips (<=0.1.4)", "matplotlib (>=3.2.0)", "mypy (==1.4.1)", "nltk (>=3.6)", "pycocotools (>2.0.0)", "pystoi (>=0.3.0)", "regex (>=2021.9.24)", "scipy (>1.0.0)", "torch-fidelity (<=0.3.0)", "torchaudio (>=0.10.0)", "torchvision (>=0.8)", "tqdm (>=4.41.0)", "transformers (>4.4.0)", "transformers (>=4.10.0)", "types-PyYAML", "types-emoji", "types-protobuf", "types-requests", "types-setuptools", "types-six", "types-tabulate"]
+audio = ["pystoi (>=0.3.0)", "torchaudio (>=0.10.0)"]
+detection = ["pycocotools (>2.0.0)", "torchvision (>=0.8)"]
+dev = ["SciencePlots (>=2.0.0)", "bert-score (==0.3.13)", "cloudpickle (>1.3)", "coverage (==7.2.7)", "dython (<=0.7.4)", "fairlearn", "fast-bss-eval (>=0.1.0)", "fire (<=0.5.0)", "huggingface-hub (<0.16)", "jiwer (>=2.3.0)", "kornia (>=0.6.7)", "lpips (<=0.1.4)", "matplotlib (>=3.2.0)", "mir-eval (>=0.6)", "mypy (==1.4.1)", "netcal (>1.0.0)", "nltk (>=3.6)", "numpy (<1.25.0)", "pandas (>1.0.0)", "pandas (>=1.4.0)", "phmdoctest (==1.4.0)", "psutil (<=5.9.5)", "pycocotools (>2.0.0)", "pystoi (>=0.3.0)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-doctestplus (==0.13.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "pytorch-msssim (==1.0.0)", "regex (>=2021.9.24)", "requests (<=2.31.0)", "rouge-score (>0.1.0)", "sacrebleu (>=2.0.0)", "scikit-image (>=0.19.0)", "scikit-learn (>=1.1.1)", "scipy (>1.0.0)", "sewar (>=0.4.4)", "statsmodels (>0.13.5)", "torch-complex (<=0.4.3)", "torch-fidelity (<=0.3.0)", "torchaudio (>=0.10.0)", "torchvision (>=0.8)", "tqdm (>=4.41.0)", "transformers (>4.4.0)", "transformers (>=4.10.0)", "types-PyYAML", "types-emoji", "types-protobuf", "types-requests", "types-setuptools", "types-six", "types-tabulate"]
+image = ["lpips (<=0.1.4)", "scipy (>1.0.0)", "torch-fidelity (<=0.3.0)", "torchvision (>=0.8)"]
+multimodal = ["transformers (>=4.10.0)"]
+test = ["bert-score (==0.3.13)", "cloudpickle (>1.3)", "coverage (==7.2.7)", "dython (<=0.7.4)", "fairlearn", "fast-bss-eval (>=0.1.0)", "fire (<=0.5.0)", "huggingface-hub (<0.16)", "jiwer (>=2.3.0)", "kornia (>=0.6.7)", "mir-eval (>=0.6)", "netcal (>1.0.0)", "numpy (<1.25.0)", "pandas (>1.0.0)", "pandas (>=1.4.0)", "phmdoctest (==1.4.0)", "psutil (<=5.9.5)", "pytest (==7.4.0)", "pytest-cov (==4.1.0)", "pytest-doctestplus (==0.13.0)", "pytest-rerunfailures (==12.0)", "pytest-timeout (==2.1.0)", "pytorch-msssim (==1.0.0)", "requests (<=2.31.0)", "rouge-score (>0.1.0)", "sacrebleu (>=2.0.0)", "scikit-image (>=0.19.0)", "scikit-learn (>=1.1.1)", "scipy (>1.0.0)", "sewar (>=0.4.4)", "statsmodels (>0.13.5)", "torch-complex (<=0.4.3)"]
+text = ["nltk (>=3.6)", "regex (>=2021.9.24)", "tqdm (>=4.41.0)", "transformers (>4.4.0)"]
+typing = ["mypy (==1.4.1)", "types-PyYAML", "types-emoji", "types-protobuf", "types-requests", "types-setuptools", "types-six", "types-tabulate"]
+visual = ["SciencePlots (>=2.0.0)", "matplotlib (>=3.2.0)"]
 
 [[package]]
 name = "tqdm"
@@ -3902,12 +3934,22 @@ python-versions = "*"
 files = [
     {file = "triton-2.0.0-1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:38806ee9663f4b0f7cd64790e96c579374089e58f49aac4a6608121aa55e2505"},
     {file = "triton-2.0.0-1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:226941c7b8595219ddef59a1fdb821e8c744289a132415ddd584facedeb475b1"},
+    {file = "triton-2.0.0-1-cp36-cp36m-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:4c9fc8c89874bc48eb7e7b2107a9b8d2c0bf139778637be5bfccb09191685cfd"},
+    {file = "triton-2.0.0-1-cp37-cp37m-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:d2684b6a60b9f174f447f36f933e9a45f31db96cb723723ecd2dcfd1c57b778b"},
     {file = "triton-2.0.0-1-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:9d4978298b74fcf59a75fe71e535c092b023088933b2f1df933ec32615e4beef"},
     {file = "triton-2.0.0-1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:74f118c12b437fb2ca25e1a04759173b517582fcf4c7be11913316c764213656"},
+    {file = "triton-2.0.0-1-pp37-pypy37_pp73-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:9618815a8da1d9157514f08f855d9e9ff92e329cd81c0305003eb9ec25cc5add"},
+    {file = "triton-2.0.0-1-pp38-pypy38_pp73-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:1aca3303629cd3136375b82cb9921727f804e47ebee27b2677fef23005c3851a"},
+    {file = "triton-2.0.0-1-pp39-pypy39_pp73-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:e3e13aa8b527c9b642e3a9defcc0fbd8ffbe1c80d8ac8c15a01692478dc64d8a"},
     {file = "triton-2.0.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8f05a7e64e4ca0565535e3d5d3405d7e49f9d308505bb7773d21fb26a4c008c2"},
     {file = "triton-2.0.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bb4b99ca3c6844066e516658541d876c28a5f6e3a852286bbc97ad57134827fd"},
+    {file = "triton-2.0.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:47b4d70dc92fb40af553b4460492c31dc7d3a114a979ffb7a5cdedb7eb546c08"},
+    {file = "triton-2.0.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fedce6a381901b1547e0e7e1f2546e4f65dca6d91e2d8a7305a2d1f5551895be"},
     {file = "triton-2.0.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:75834f27926eab6c7f00ce73aaf1ab5bfb9bec6eb57ab7c0bfc0a23fac803b4c"},
     {file = "triton-2.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0117722f8c2b579cd429e0bee80f7731ae05f63fe8e9414acd9a679885fcbf42"},
+    {file = "triton-2.0.0-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:bcd9be5d0c2e45d2b7e6ddc6da20112b6862d69741576f9c3dbaf941d745ecae"},
+    {file = "triton-2.0.0-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:42a0d2c3fc2eab4ba71384f2e785fbfd47aa41ae05fa58bf12cb31dcbd0aeceb"},
+    {file = "triton-2.0.0-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:52c47b72c72693198163ece9d90a721299e4fb3b8e24fd13141e384ad952724f"},
 ]
 
 [package.dependencies]
@@ -3919,11 +3961,6 @@ torch = "*"
 [package.extras]
 tests = ["autopep8", "flake8", "isort", "numpy", "pytest", "scipy (>=1.7.1)"]
 tutorials = ["matplotlib", "pandas", "tabulate"]
-
-[package.source]
-type = "legacy"
-url = "https://download.pytorch.org/whl/cu118"
-reference = "pytorch"
 
 [[package]]
 name = "typer"
@@ -4238,4 +4275,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d68b3e9eb61d943434ac98c219039fe110d819bd8355e1647ac5c2cba36511b3"
+content-hash = "f90793a196a90ee278e209672e4b9632d8b540660694b5fdd08a57a4709785f9"

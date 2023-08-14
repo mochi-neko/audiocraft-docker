@@ -7,10 +7,16 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-torch = {version = "^2.0.0+cu118", source = "pytorch"}
-torchaudio = {version = "^2.0.1+cu118", source = "pytorch"}
-audiocraft = "^0.0.2"
+torch = {version = "^2.0.1+cu118", source = "pytorch"}
+torchaudio = {version = "^2.0.2+cu118", source = "pytorch"}
+audiocraft = {git = "https://github.com/facebookresearch/audiocraft.git"}
 
+# PyPI source
+[[tool.poetry.source]]
+name = "pypi"
+default = true
+
+# PyTorch source
 [[tool.poetry.source]]
 name = "pytorch"
 url = "https://download.pytorch.org/whl/cu118"
