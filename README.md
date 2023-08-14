@@ -3,7 +3,7 @@ A docker environment for AudioCraft with GPU/CUDA.
 
 ## How to run a AudioGen sample by AudioCraft
 
-0. Install NVIDIA driver for CUDA 11.8 and setup Docker enviroment.
+0. Install NVIDIA driver for CUDA 11.8 and setup Docker enviroment on your host machine, then check CUDA version.
 
 ```shell
 nvidia-smi
