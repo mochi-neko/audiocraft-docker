@@ -37,10 +37,10 @@ RUN /opt/python3.11/bin/pip --version
 
 # Setup Poetry
 RUN /opt/python3.11/bin/pip install poetry
-COPY pyproject.toml .
+ENV PATH /root/.cache/pypoetry/virtualenvs/audiocraft-docker-9TtSrW0h-py3.11/bin:$PATH
+COPY pyproject.tompol .
 COPY poetry.lock .
 RUN poetry install
-ENV PATH /root/.cache/pypoetry/virtualenvs/audiocraft-docker-9TtSrW0h-py3.11/bin:$PATH
 
 # Set working directory
 WORKDIR /app

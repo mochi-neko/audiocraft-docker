@@ -4,10 +4,10 @@ from audiocraft.models import AudioGen
 from audiocraft.data.audio import audio_write
 
 model = AudioGen.get_pretrained('facebook/audiogen-medium')
-model.set_generation_params(duration=5)  # generate 5 seconds.
-descriptions = ['dog barking', 'sirene of an emergency vehicle', 'footsteps in a corridor']
-wav = model.generate(descriptions)  # generates 3 samples.
+model.set_generation_params(duration=2)
+descriptions = ['cute cry of a happy lion']
+wav = model.generate(descriptions)
 
 for idx, one_wav in enumerate(wav):
-    # Will save under {idx}.wav, with loudness normalization at -14 db LUFS.
-    audio_write(f'{idx}', one_wav.cpu(), model.sample_rate, strategy="loudness", loudness_compressor=True)
+    audio_write(f'.generated/{descriptions[idx]}', one_wav.cpu(), model.sample_rate, strategy="loudness", loudness_compressor=True)
+    print(f'Saved :{descriptions[idx]}')
